@@ -1,18 +1,17 @@
 const Discord = require("discord.js");
 const googleTTS = require("google-tts-api");
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
 const chalk = require("chalk");
 const moment = require("moment");
-var Jimp = require("jimp");//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+var Jimp = require("jimp");
 const { Client, Util } = require("discord.js");
 const weather = require("weather-js");
 const fs = require("fs");
 const db = require("quick.db");
 const http = require("http");
 const express = require("express");
-require("./util/eventLoader.js")(client);//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+require("./util/eventLoader.js")(client);
 const path = require("path");
 const request = require("request");
 const snekfetch = require("snekfetch");
@@ -35,7 +34,7 @@ var prefix = ayarlar.prefix;
 const log = message => {
   console.log(`${message}`);
 };
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir("./komutlar/", (err, files) => {
@@ -63,7 +62,7 @@ client.reload = command => {
       client.commands.set(command, cmd);
       cmd.conf.aliases.forEach(alias => {
         client.aliases.set(alias, cmd.help.name);
-      });//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+      });
       resolve();
     } catch (e) {
       reject(e);
@@ -100,7 +99,7 @@ client.unload = command => {
       reject(e);
     }
   });
-};//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+};
 
 client.elevation = message => {
   if (!message.guild) {
@@ -122,7 +121,7 @@ client.on("warn", e => {
   console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
 });
 
-client.on("error", e => {//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+client.on("error", e => {
   console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
 });
 
@@ -160,7 +159,7 @@ client.on("guildMemberAdd", async member => {
     resim
   );
 });
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
 //
 client.on("guildMemberAdd", async member => {
   member.addRole("727908156260220991");
@@ -199,7 +198,7 @@ client.on("guildMemberAdd", member => {
 
     member.user.send(
       "Hesabınız 7 günden önce açıldığı için cezalıya atıldınız, yetkililere bildirerek açtırabilirsinin dostum"
-    );//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+    );
 
     const rochelle = new Discord.RichEmbed()
       .setColor("GOLD")
@@ -215,7 +214,7 @@ client.on("guildMemberAdd", member => {
   } else {
   }
 }); // 7 günden önce hesaplar
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
 client.on("voiceStateUpdate", async (thrones, sanal) => {
   let voiceLog = thrones.guild.channels.find(c => c.name === "voice-log");
   if (thrones.voiceChannel === sanal.voiceChannel) return;
@@ -235,7 +234,7 @@ client.on("voiceStateUpdate", async (thrones, sanal) => {
         }
       })
       .catch(console.error);
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
   if (!thrones.voiceChannel && sanal.voiceChannel)
     return voiceLog
       .send({
@@ -251,7 +250,7 @@ client.on("voiceStateUpdate", async (thrones, sanal) => {
         }
       })
       .catch(console.error);
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
   if (thrones.voiceChannel !== sanal.voiceChannel)
     return voiceLog
       .send({
@@ -319,7 +318,7 @@ client.on("ready", Rochelle => {
   }, 10 * 1000);
 }); ////message.guild.roles.get("boosterid").members.map("x=>  x.tag").join("\n")
 //
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
 client.on("userUpdate", async (oldCAD, newCAD) => {
   if (oldCAD.avatarURL === newCAD.avatarURL) return;
 
@@ -358,7 +357,7 @@ client.on("userUpdate", async (saint, yeni) => {
     yeni.bot ||
     saint.username === yeni.username
   )
-    return;//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+    return;
 
   if (yeni.username.includes(ekipTag) && !uye.roles.has(ekipRolü)) {
     try {
@@ -373,7 +372,7 @@ client.on("userUpdate", async (saint, yeni) => {
       console.error(err);
     }
   }
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
   if (!yeni.username.includes(ekipTag) && uye.roles.has(ekipRolü)) {
     try {
       await uye.addRole(kayıtsızRol);
@@ -395,7 +394,7 @@ client.on("userUpdate", async (saint, yeni) => {
     }
   }
 });
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+
 client.on("message", async message => {
   if (message.content === "!gir") {
     // - yerine prefixi yaz
@@ -420,7 +419,7 @@ client.on("message", async msg => {
 //Zcode
 client.on("message", async msg => {
   if (msg.content.toLowerCase() === "Sea") {
-    msg.reply("Aleyküm Selam Hoşgeldin! ");//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+    msg.reply("Aleyküm Selam Hoşgeldin! ");
   }
 });
 //Zcode
@@ -474,7 +473,7 @@ client.on("guildMemberAdd", async member => {
   if (!jail) return;
   member.roles.forEach(xfalcon => {
     member.removeRole(xfalcon);
-    member.addRole(jail);//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+    member.addRole(jail);
   });
 });
 //jail e bu db yi eklesene
@@ -536,7 +535,7 @@ client.on("guildMemberAdd", member => {
     let a = [],
       i = charA.charCodeAt(0),
       j = charZ.charCodeAt(0);
-    for (; i <= j; ++i) {//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+    for (; i <= j; ++i) {
       a.push(String.fromCharCode(i));
     }
     return a;
@@ -556,4 +555,3 @@ xfalcon.disconnect();
 });*/
 // 
 client.login(ayarlar.token);
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
