@@ -5,10 +5,10 @@ module.exports = client => {
   
   const aktiviteListesi = [
     
-    'TlhaMert Youtube',
+    'jj',
     'journey is here',
-    'Youtube: https://youtube.com/c/TlhaMert'
-  ]//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
+    'journey'
+  ]
 
   client.user.setStatus('online')
   
@@ -19,4 +19,3 @@ module.exports = client => {
 }
  
 
-//TlhaMert Youtube Kanalı : https://youtube.com/c/TlhaMert
